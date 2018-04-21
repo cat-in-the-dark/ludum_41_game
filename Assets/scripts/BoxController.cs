@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoxController : MonoBehaviour
 {
     public float ZSpeed = 1f;
-
+    private float behindPos = -1f;
 
     // Use this for initialization
     void Start()
@@ -16,5 +16,10 @@ public class BoxController : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.back * ZSpeed;
+    }
+
+    public bool IsBehindScene()
+    {
+        return transform.position.z <= behindPos;
     }
 }
