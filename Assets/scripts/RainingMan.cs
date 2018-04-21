@@ -45,12 +45,11 @@ public class RainingMan : MonoBehaviour
         enemy.GetComponent<Transform>().position = pos;
         enemy.GetComponent<BoxController>().ZSpeed = Random.Range(MinSpeed, MaxSpeed);
         _enemies.Add(enemy);
-        Debug.LogFormat("SPAWN {0}", pos);
     }
 
     private void OnBoxHit(GameObject enemy)
     {
-        _cameraShaker.Shake();
+        if (_cameraShaker != null) _cameraShaker.Shake();
         _player.Hurt();
     }
 }

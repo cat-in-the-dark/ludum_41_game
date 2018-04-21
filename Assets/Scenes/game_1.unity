@@ -156,11 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0e2ad2dd6e84f19909f18c2b5da2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EverySecondSpawn: 0.5
+  EverySecondSpawn: 1
   Enemy: {fileID: 1973235686542548, guid: 50b447e2b87934d4ca4d9b9e6cea7076, type: 2}
   Z: 40
   MinSpeed: 0.1
-  MaxSpeed: 0.8
+  MaxSpeed: 0.15
 --- !u!114 &464231304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41298a867546348f29a85260c22cab41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHp: 100
+  PainAmount: 10
 --- !u!1001 &968714577
 Prefab:
   m_ObjectHideFlags: 0
