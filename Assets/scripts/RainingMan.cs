@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RainingMan : MonoBehaviour
