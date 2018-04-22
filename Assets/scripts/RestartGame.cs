@@ -14,7 +14,12 @@ public class RestartGame : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown("Cancel"))
 		{
-			SceneManager.LoadScene("Scenes/Menu");
+			Restart();
 		}
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene("Scenes/Menu");
 	}
 }
