@@ -41,7 +41,8 @@ public class BoxFiller : MonoBehaviour
         _offset = Random.Range(0, 2);
         Fill();
         Remove();
-        _controller.Type = _pattern.Substring(0,1);;
+        _controller.Type = _pattern.Substring(0, 1);
+        ;
     }
 
     private int[,] ChosePattern()
@@ -68,6 +69,19 @@ public class BoxFiller : MonoBehaviour
             Destroy(_cubes[pattern[i, 0] + _offset, pattern[i, 1] + _offset]);
             _cubes[pattern[i, 0], pattern[i, 1]] = null;
         }
+    }
+
+
+    public void RemoveAllCubes()
+    {
+        foreach (var cube in _cubes)
+        {
+            if (cube != null) Destroy(cube);
+        }
+
+        _cubes = null;
+        Destroy(Container);
+        Container = null;
     }
 
     private void Fill()

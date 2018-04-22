@@ -159,13 +159,13 @@ MonoBehaviour:
   EscapeGate: {fileID: 1914896973}
   Enemy: {fileID: 1973235686542548, guid: 50b447e2b87934d4ca4d9b9e6cea7076, type: 2}
   EverySecondSpawnPerLevel:
+  - 2
   - 1
-  - 0.5
-  - 0.3
+  - 0.2
   SpeedsPerLevel:
+  - 0.08
   - 0.2
   - 0.4
-  - 0.8
   CurrentLevel: 0
 --- !u!114 &464231304
 MonoBehaviour:
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1296991137}
-  ShakeDurationSeconds: 2
+  ShakeDurationSeconds: 1
   ShakeAmount: 0.7
   DecreaseFactor: 1
 --- !u!114 &464231306

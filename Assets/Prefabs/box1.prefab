@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 50104629483354014}
   m_Layer: 0
   m_Name: box1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,6 +188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  Type: 
+  IsDead: 0
+  DefaultSprite: {fileID: 21300000, guid: 9a1d6150f5f2b4573af05fbf18640597, type: 3}
+  MissSprite: {fileID: 21300000, guid: a8110aef2bcac4ce58baa236541e3b4f, type: 3}
+  DeadSprite: {fileID: 21300000, guid: db38acfeca57248f988f6fc2cd3e5b51, type: 3}
 --- !u!114 &114335556188086476
 MonoBehaviour:
   m_ObjectHideFlags: 1

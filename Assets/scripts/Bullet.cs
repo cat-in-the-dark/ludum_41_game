@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public string Type; // L, S, T, I
     public bool IsFired = false;
     public float Speed = 0.5f;
+    public Vector3 Direction;
 
 
     // Use this for initialization
@@ -15,13 +16,18 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.eulerAngles * Speed;
+        transform.position += Direction * Speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            return;
+        }
         var controller = other.gameObject.GetComponent<BoxController>();
-//        Debug.LogFormat("Collide between {0}, {1}", Type, controller.Type);
+        if (controller.IsDead) return; // nothing to do here
         
         if (controller.Type == Type)
         {
@@ -40,6 +46,6 @@ public class Bullet : MonoBehaviour
 
     private void Miss(BoxController controller)
     {
-        Debug.Log("MISS");    
+        controller.Miss();
     }
 }

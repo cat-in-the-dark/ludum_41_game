@@ -67,9 +67,28 @@ public class GunControl : MonoBehaviour
     private void Fire(string type)
     {
         var obj = Instantiate(_objects[type]);
-        obj.GetComponent<Bullet>().IsFired = true;
-        obj.GetComponent<Bullet>().Type = type;
+        var bullet = obj.GetComponent<Bullet>();
+        bullet.IsFired = true;
+        bullet.Type = type;
+        bullet.Direction = AimVector();
         obj.transform.position = transform.position;
         obj.transform.eulerAngles = Vector3.up; // TODO from mouse position
+    }
+
+    private float Angle()
+    {
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        var dir = Input.mousePosition - pos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return angle;
+    }
+
+    private Vector3 AimVector()
+    {
+        var angle = Angle();
+        return new Vector3(
+            Mathf.Cos(Mathf.Deg2Rad * angle),
+            Mathf.Sin(Mathf.Deg2Rad * angle),
+            0f);
     }
 }

@@ -1,16 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
     public float Speed = 1f;
     public string Type;
-    public bool IsDead = false; 
+    public bool IsDead = false;
+
+    public Sprite DefaultSprite;
+    public Sprite MissSprite;
+    public Sprite DeadSprite;
+
+    private float ResetSpriteCooldown = 1;
+    private SpriteRenderer _renderer;
+
+    private BoxFiller _filler;
 
     // Use this for initialization
     void Start()
     {
+        _filler = GetComponent<BoxFiller>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,6 +30,20 @@ public class BoxController : MonoBehaviour
 
     public void Die()
     {
+        CancelInvoke("ResetSprite");
         IsDead = true;
+        _renderer.sprite = DeadSprite;
+        _filler.RemoveAllCubes();
+    }
+
+    public void Miss()
+    {
+        _renderer.sprite = MissSprite;
+        Invoke("ResetSprite", ResetSpriteCooldown);
+    }
+
+    private void ResetSprite()
+    {
+        _renderer.sprite = DefaultSprite;
     }
 }

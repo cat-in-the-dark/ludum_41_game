@@ -10,6 +10,7 @@ public class AimFollow : MonoBehaviour
 
     private void Start()
     {
+        hotSpot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
     }
 
