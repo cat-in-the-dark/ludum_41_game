@@ -5,10 +5,10 @@ public class RainingMan : MonoBehaviour
 {
     public GameObject EscapeGate;
     public GameObject Enemy;
-    public List<float> EverySecondSpawnPerLevel = new List<float>() {0.5f, 0.5f, 0.2f};
-    public List<float> SpeedsPerLevel = new List<float>() {0.1f, 0.4f, 0.6f};
+    public List<float> EverySecondSpawnPerLevel;
+    public List<float> SpeedsPerLevel;
     public int CurrentLevel = 0;
-    
+
     private float EverySecondSpawn
     {
         get { return EverySecondSpawnPerLevel[Mathf.Min(CurrentLevel, EverySecondSpawnPerLevel.Count - 1)]; }
@@ -32,7 +32,7 @@ public class RainingMan : MonoBehaviour
         _spawnPoint = transform.position;
         _player = GetComponent<Player>();
         _cameraShaker = GetComponent<CameraShaker>();
-        InvokeRepeating("Spawn", EverySecondSpawn, EverySecondSpawn);
+        InvokeRepeating("Spawn", 0, EverySecondSpawn);
     }
 
     // Update is called once per frame
@@ -50,6 +50,13 @@ public class RainingMan : MonoBehaviour
             OnEscape(enemy);
             Destroy(enemy);
         }
+
+        CalcLevel();
+    }
+
+    private void CalcLevel()
+    {
+        CurrentLevel = _player.Score / 15;
     }
 
     private void Spawn()
@@ -68,6 +75,7 @@ public class RainingMan : MonoBehaviour
             _player.Pay();
             return; // It's good
         }
+
         if (_cameraShaker != null) _cameraShaker.Shake();
         _player.Hurt();
     }

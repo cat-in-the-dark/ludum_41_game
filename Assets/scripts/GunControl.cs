@@ -43,7 +43,6 @@ public class GunControl : MonoBehaviour
             Destroy(_bullet);
             Fire(_currentType);
             _bullet = null;
-            _currentType = null;
         }
     }
 
@@ -54,7 +53,13 @@ public class GunControl : MonoBehaviour
 
     private void NextBullet()
     {
-        var type = _types[Random.Range(0, _types.Length)];
+        string type;
+        do
+        {
+            // So we never get 2 same types in raw
+            type = _types[Random.Range(0, _types.Length)];
+        } while (type == _currentType);
+
         var obj = Instantiate(_objects[type]);
         obj.transform.parent = transform;
         obj.transform.eulerAngles = Vector3.back * 90;

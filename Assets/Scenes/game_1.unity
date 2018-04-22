@@ -161,12 +161,18 @@ MonoBehaviour:
   Enemy: {fileID: 1973235686542548, guid: 50b447e2b87934d4ca4d9b9e6cea7076, type: 2}
   EverySecondSpawnPerLevel:
   - 2
+  - 1.4
+  - 1.2
   - 1
-  - 0.2
+  - 0.8
+  - 0.5
   SpeedsPerLevel:
-  - 0.08
+  - 0.07
+  - 0.09
+  - 0.11
+  - 0.14
+  - 0.16
   - 0.2
-  - 0.4
   CurrentLevel: 0
 --- !u!114 &464231304
 MonoBehaviour:
