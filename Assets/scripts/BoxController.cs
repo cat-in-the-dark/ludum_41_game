@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
-    public float ZSpeed = 1f;
-    private float behindPos = -1f;
+    public float Speed = 1f;
 
     // Use this for initialization
     void Start()
@@ -15,11 +14,6 @@ public class BoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.back * ZSpeed;
-    }
-
-    public bool IsBehindScene()
-    {
-        return transform.position.z <= behindPos;
+        transform.position += Vector3.right * Speed;
     }
 }
