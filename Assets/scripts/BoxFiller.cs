@@ -14,10 +14,7 @@ public class BoxFiller : MonoBehaviour
     public GameObject LeftTopCorner;
     public GameObject RightBottomCorner;
 
-    public string Pattern
-    {
-        get { return _pattern.Substring(0,1); }
-    }
+    private BoxController _controller;
 
     private string _pattern = "L1"; // L, T, S, I
     private int _offset = 0;
@@ -39,10 +36,12 @@ public class BoxFiller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _controller = GetComponent<BoxController>();
         _pattern = _patterns[Random.Range(0, _patterns.Length)];
         _offset = Random.Range(0, 2);
         Fill();
         Remove();
+        _controller.Type = _pattern.Substring(0,1);;
     }
 
     private int[,] ChosePattern()
@@ -113,10 +112,5 @@ public class BoxFiller : MonoBehaviour
         var size = tmp.GetComponent<Renderer>().bounds.size;
         DestroyImmediate(tmp);
         return size;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

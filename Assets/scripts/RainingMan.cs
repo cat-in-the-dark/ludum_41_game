@@ -48,8 +48,8 @@ public class RainingMan : MonoBehaviour
             enemy.GetComponent<BoxController>().Speed = speed;
             if (!IsEscaped(enemy)) continue;
 
-            _enemies.Remove(enemy);
-            OnBoxHit(enemy);
+            _enemies.RemoveAt(i);
+            OnEscape(enemy);
             Destroy(enemy);
         }
     }
@@ -57,16 +57,15 @@ public class RainingMan : MonoBehaviour
     private void Spawn()
     {
         var enemy = Instantiate(Enemy);
-//        var x = Random.Range(-10f, 10f);
-//        var y = Random.Range(-4f, 4f);
-//        var pos = new Vector3(x, y, Z);
         enemy.GetComponent<Transform>().position = _spawnPoint;
         enemy.GetComponent<BoxController>().Speed = Speed;
         _enemies.Add(enemy);
     }
 
-    private void OnBoxHit(GameObject enemy)
+    private void OnEscape(GameObject enemy)
     {
+        var controller = enemy.GetComponent<BoxController>();
+        if (controller.IsDead) return; // It's good
         if (_cameraShaker != null) _cameraShaker.Shake();
         _player.Hurt();
     }
