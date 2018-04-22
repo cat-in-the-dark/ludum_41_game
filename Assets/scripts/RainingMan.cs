@@ -24,10 +24,12 @@ public class RainingMan : MonoBehaviour
     private Player _player;
     private Vector3 _spawnPoint;
     private Vector3 _escapePoint;
+    private InGameSounds _sounds;
 
     // Use this for initialization
     void Start()
     {
+        _sounds = GetComponent<InGameSounds>();
         _escapePoint = EscapeGate.transform.position;
         _spawnPoint = transform.position;
         _player = GetComponent<Player>();
@@ -77,6 +79,7 @@ public class RainingMan : MonoBehaviour
         }
 
         if (_cameraShaker != null) _cameraShaker.Shake();
+        _sounds.Hurt();
         _player.Hurt();
     }
 
