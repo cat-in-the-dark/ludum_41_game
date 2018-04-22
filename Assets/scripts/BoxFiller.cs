@@ -13,10 +13,17 @@ public class BoxFiller : MonoBehaviour
     public GameObject Filler;
     public GameObject LeftTopCorner;
     public GameObject RightBottomCorner;
-    private string _pattern = "L"; // L, T, S, I
+
+    public string Pattern
+    {
+        get { return _pattern.Substring(0,1); }
+    }
+
+    private string _pattern = "L1"; // L, T, S, I
     private int _offset = 0;
 
-    private readonly string[] _patterns = {"L", "I", "T", "S", "L2", "I2", "T2", "S2"};
+    private readonly string[] _rotationVariants = {"1", "2"};
+    private readonly string[] _patterns = {"L1", "I1", "T1", "S1", "L2", "I2", "T2", "S2"};
     private GameObject[,] _cubes;
 
     private readonly int[,] _patternI1 = {{0, 0}, {0, 1}, {0, 2}, {0, 3}};
@@ -42,10 +49,10 @@ public class BoxFiller : MonoBehaviour
     {
         switch (_pattern)
         {
-            case "L": return _patternL1;
-            case "I": return _patternI1;
-            case "T": return _patternT1;
-            case "S": return _patternS1;
+            case "L1": return _patternL1;
+            case "I1": return _patternI1;
+            case "T1": return _patternT1;
+            case "S1": return _patternS1;
             case "L2": return _patternL2;
             case "I2": return _patternI2;
             case "T2": return _patternT2;

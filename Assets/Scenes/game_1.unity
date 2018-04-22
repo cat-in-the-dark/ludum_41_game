@@ -321,35 +321,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20136898049316794, guid: 31e22761c2d63461faf07ddfdd89c55d,
-        type: 2}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921682738050108, guid: 31e22761c2d63461faf07ddfdd89c55d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921682738050108, guid: 31e22761c2d63461faf07ddfdd89c55d, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921682738050108, guid: 31e22761c2d63461faf07ddfdd89c55d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212894599384008418, guid: 31e22761c2d63461faf07ddfdd89c55d,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: -1705002671
-      objectReference: {fileID: 0}
-    - target: {fileID: 212894599384008418, guid: 31e22761c2d63461faf07ddfdd89c55d,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114411647752029676, guid: 31e22761c2d63461faf07ddfdd89c55d, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31e22761c2d63461faf07ddfdd89c55d, type: 2}
   m_IsPrefabParent: 0
 --- !u!20 &1296991137 stripped
