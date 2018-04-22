@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4293f2eb44f814eb7979c18fc56d97c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CooldownSeconds: 0.01
+  CooldownSeconds: 0.02
   L: {fileID: 1376223276789520, guid: 5211970eee76e4fb0bb0f48ec343c358, type: 2}
   S: {fileID: 1781073436155166, guid: f8b80522fe97d441e8c05a9b12660bd2, type: 2}
   T: {fileID: 1345378718171878, guid: 708dcc97643ce422690825b3463db0c9, type: 2}

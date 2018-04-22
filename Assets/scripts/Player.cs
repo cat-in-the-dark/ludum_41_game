@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private int MaxHp = 10;
     private int PainAmount = 1;
 
-    private int PlusScore = 5;
+    private int PlusScore = 3;
     private int MinusScore = 2;
 
     public int CurrentHp;

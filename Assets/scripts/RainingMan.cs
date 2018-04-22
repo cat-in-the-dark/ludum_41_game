@@ -58,6 +58,11 @@ public class RainingMan : MonoBehaviour
 
     private void CalcLevel()
     {
+        if (_player.Score <= 0)
+        {
+            CurrentLevel = 0;
+            return;
+        }
         CurrentLevel = _player.Score / 15;
     }
 
