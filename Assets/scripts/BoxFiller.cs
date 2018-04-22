@@ -19,7 +19,6 @@ public class BoxFiller : MonoBehaviour
     private string _pattern = "L1"; // L, T, S, I
     private int _offset = 0;
 
-    private readonly string[] _rotationVariants = {"1", "2"};
     private readonly string[] _patterns = {"L1", "I1", "T1", "S1", "L2", "I2", "T2", "S2"};
     private GameObject[,] _cubes;
 

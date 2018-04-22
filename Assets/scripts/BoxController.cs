@@ -14,10 +14,12 @@ public class BoxController : MonoBehaviour
     private SpriteRenderer _renderer;
 
     private BoxFiller _filler;
+    private Player _player;
 
     // Use this for initialization
     void Start()
     {
+        _player = FindObjectOfType<Player>();
         _filler = GetComponent<BoxFiller>();
         _renderer = GetComponent<SpriteRenderer>();
     }
@@ -40,6 +42,8 @@ public class BoxController : MonoBehaviour
     {
         _renderer.sprite = MissSprite;
         Invoke("ResetSprite", ResetSpriteCooldown);
+        
+        _player.Miss();
     }
 
     private void ResetSprite()

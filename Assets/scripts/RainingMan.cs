@@ -63,7 +63,11 @@ public class RainingMan : MonoBehaviour
     private void OnEscape(GameObject enemy)
     {
         var controller = enemy.GetComponent<BoxController>();
-        if (controller.IsDead) return; // It's good
+        if (controller.IsDead)
+        {
+            _player.Pay();
+            return; // It's good
+        }
         if (_cameraShaker != null) _cameraShaker.Shake();
         _player.Hurt();
     }
