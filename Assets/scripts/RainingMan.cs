@@ -58,12 +58,7 @@ public class RainingMan : MonoBehaviour
 
     private void CalcLevel()
     {
-        if (_player.Score <= 0)
-        {
-            CurrentLevel = 0;
-            return;
-        }
-        CurrentLevel = _player.Score / 15;
+        CurrentLevel = Mathf.Max(0, Mathf.FloorToInt((_player.TimeScore - _player.InitialTimeCredit) / 10));
     }
 
     private void Spawn()
@@ -77,11 +72,7 @@ public class RainingMan : MonoBehaviour
     private void OnEscape(GameObject enemy)
     {
         var controller = enemy.GetComponent<BoxController>();
-        if (controller.IsDead)
-        {
-            _player.Pay();
-            return; // It's good
-        }
+        if (controller.IsDead) return; // It's good
 
         if (_cameraShaker != null) _cameraShaker.Shake();
         _sounds.Hurt();

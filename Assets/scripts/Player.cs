@@ -4,55 +4,60 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private int MaxHp = 10;
-    private int PainAmount = 1;
+    public Text TextTimeScore;
+    public Text TextPlayedTime;
+    public float TimeScore;
 
-    private int PlusScore = 3;
-    private int MinusScore = 2;
+    private float PainTime = 10;
+    private float MissTime = 3;
+    private float PriseTime = 5;
 
-    public int CurrentHp;
-    public int Score;
-
-    public Text TextCurrentHp;
-    public Text TextScore;
+    public readonly float InitialTimeCredit = 30;
+    private float PlayedTime;
+    private HighScore _score;
 
     // Use this for initialization
     void Start()
     {
-        CurrentHp = MaxHp;
-        Score = 0;
+        PlayedTime = 0;
+        TimeScore = InitialTimeCredit;
+        _score = GetComponent<HighScore>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        TextCurrentHp.text = string.Format("{0}", CurrentHp);
-        TextScore.text = string.Format("{0}", Score);
-    }
+        PlayedTime += Time.deltaTime;
+        TimeScore -= Time.deltaTime;
 
-    public void Hurt()
-    {
-        CurrentHp -= PainAmount;
-        if (CurrentHp <= 0)
+        TextTimeScore.text = string.Format("{0}", (int) TimeScore);
+        TextPlayedTime.text = string.Format("{0}", (int) PlayedTime);
+
+        if (TimeScore <= 0)
         {
             Die();
         }
     }
 
+    public void Hurt()
+    {
+        TimeScore -= PainTime;
+    }
+
     public void Pay()
     {
-        Score += PlusScore;
+        TimeScore += PriseTime;
     }
 
     public void Miss()
     {
-        Score -= MinusScore;
+        TimeScore -= MissTime;
     }
 
-    public void Die()
+    private void Die()
     {
-        Debug.Log("Dead!");
-        Invoke("GameOver", 1);
+        _score.Save(Mathf.FloorToInt(PlayedTime));
+        Invoke("GameOver", 0.5f);
     }
 
     void GameOver()

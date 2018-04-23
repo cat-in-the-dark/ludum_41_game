@@ -32,6 +32,7 @@ public class BoxController : MonoBehaviour
 
     public void Die()
     {
+        _player.Pay();
         CancelInvoke("ResetSprite");
         IsDead = true;
         _renderer.sprite = DeadSprite;
@@ -42,7 +43,7 @@ public class BoxController : MonoBehaviour
     {
         _renderer.sprite = MissSprite;
         Invoke("ResetSprite", ResetSpriteCooldown);
-        
+
         _player.Miss();
     }
 

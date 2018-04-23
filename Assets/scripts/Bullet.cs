@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
         if (controller.Type == Type)
         {
             Hit(controller);
+            Destroy(gameObject);
         }
         else
         {

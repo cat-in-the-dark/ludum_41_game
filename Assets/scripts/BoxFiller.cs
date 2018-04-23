@@ -22,15 +22,15 @@ public class BoxFiller : MonoBehaviour
     private readonly string[] _patterns = {"L1", "I1", "T1", "S1", "L2", "I2", "T2", "S2"};
     private GameObject[,] _cubes;
 
-    private readonly int[,] _patternI1 = {{0, 0}, {0, 1}, {0, 2}, {0, 3}};
-    private readonly int[,] _patternT1 = {{0, 0}, {0, 1}, {0, 2}, {1, 1}};
-    private readonly int[,] _patternS1 = {{0, 0}, {0, 1}, {1, 1}, {1, 2}};
-    private readonly int[,] _patternL1 = {{0, 0}, {0, 1}, {0, 2}, {1, 2}};
+    private readonly int[,] _patternI1 = {{1, 0}, {1, 1}, {1, 2}, {1, 3}};
+    private readonly int[,] _patternT1 = {{1, 0}, {1, 1}, {1, 2}, {2, 1}};
+    private readonly int[,] _patternS1 = {{1, 0}, {1, 1}, {2, 1}, {2, 2}};
+    private readonly int[,] _patternL1 = {{1, 0}, {1, 1}, {1, 2}, {2, 2}};
 
-    private readonly int[,] _patternI2 = {{0, 0}, {1, 0}, {2, 0}, {3, 0}};
-    private readonly int[,] _patternT2 = {{0, 0}, {1, 0}, {2, 0}, {1, 1}};
-    private readonly int[,] _patternS2 = {{0, 0}, {1, 0}, {1, 1}, {2, 1}};
-    private readonly int[,] _patternL2 = {{0, 0}, {1, 0}, {2, 0}, {2, 1}};
+    private readonly int[,] _patternI2 = {{0, 1}, {1, 1}, {2, 1}, {3, 1}};
+    private readonly int[,] _patternT2 = {{0, 1}, {1, 1}, {2, 1}, {1, 2}};
+    private readonly int[,] _patternS2 = {{0, 1}, {1, 1}, {1, 2}, {2, 2}};
+    private readonly int[,] _patternL2 = {{0, 1}, {1, 1}, {2, 1}, {2, 2}};
 
     // Use this for initialization
     void Start()
@@ -41,7 +41,6 @@ public class BoxFiller : MonoBehaviour
         Fill();
         Remove();
         _controller.Type = _pattern.Substring(0, 1);
-        ;
     }
 
     private int[,] ChosePattern()
